@@ -1,0 +1,165 @@
+/* ============================= */
+/*         CSS VARIABLES         */
+/* ============================= */
+:root {
+  --bg: #0f0f17;                 /* Page background color */
+  --text: #e2e8f0;               /* Main text color */
+  --text-muted: #94a3b8;         /* Muted text color for secondary info */
+  --primary: #7c3aed;            /* Primary color – violet tech vibe */
+  --primary-dark: #6d28d9;       /* Darker shade for hover effects */
+  --accent: #3b82f6;             /* Accent color – blue highlights */
+  --card: #1e293b;               /* Card background color */
+  --border: #334155;             /* Border color */
+}
+
+/* ============================= */
+/*       GLOBAL RESET STYLES     */
+/* ============================= */
+* {
+  margin: 0;                      /* Remove default margins */
+  padding: 0;                     /* Remove default padding */
+  box-sizing: border-box;         /* Include padding/border in element's total width */
+}
+
+/* ============================= */
+/*          BODY STYLES           */
+/* ============================= */
+body {
+  font-family: 'Inter', system-ui, sans-serif; /* Clean modern font */
+  background: var(--bg);                        /* Use background variable */
+  color: var(--text);                           /* Default text color */
+  line-height: 1.6;                             /* Better readability */
+  min-height: 100vh;                            /* Ensure full viewport height */
+  display: flex;                                /* Flex layout for main content stacking */
+  flex-direction: column;                       /* Stack header, main, footer vertically */
+}
+
+/* ============================= */
+/*         CONTAINER STYLES       */
+/* ============================= */
+.container {
+  max-width: 1200px;          /* Max width for content */
+  margin: 0 auto;             /* Center container horizontally */
+  padding: 0 1.5rem;          /* Horizontal padding */
+  width: 100%;                /* Full width on smaller screens */
+}
+
+/* ============================= */
+/*          HEADER STYLES         */
+/* ============================= */
+header {
+  padding: 4rem 0 6rem; /* Top & bottom padding */
+  text-align: center;
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); /* Gradient background */
+  position: relative; /* Required for pseudo-element overlay */
+  overflow: hidden;   /* Hide overflow of pseudo-elements */
+}
+
+/* Header decorative gradient overlay */
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 40%);
+  pointer-events: none; /* Prevent interaction with the overlay */
+}
+
+/* ============================= */
+/*         SUBTITLE STYLES        */
+/* ============================= */
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--accent);      /* Accent color for emphasis */
+  letter-spacing: 0.05em;    /* Slight spacing for readability */
+  margin-bottom: 1rem;
+  text-transform: uppercase; /* Uppercase styling for subtitle */
+}
+
+/* ============================= */
+/*            H1 STYLES           */
+/* ============================= */
+h1 {
+  font-size: clamp(2.8rem, 8vw, 5.5rem); /* Responsive scaling */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #c084fc, #60a5fa, #a5b4fc); /* Gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Modern browsers */
+}
+
+/* ============================= */
+/*        DESCRIPTION STYLES       */
+/* ============================= */
+.description {
+  max-width: 680px;          /* Limit text width for readability */
+  margin: 0 auto 2.5rem;     /* Centered with bottom margin */
+  font-size: 1.25rem;
+  color: var(--text-muted);   /* Muted text color */
+}
+
+/* ============================= */
+/*           BUTTON STYLES         */
+/* ============================= */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background: var(--primary);         /* Primary color button */
+  border: none;
+  border-radius: 9999px;              /* Pill-shaped button */
+  cursor: pointer;
+  text-decoration: none;              /* Remove underline */
+  transition: all 0.3s ease;          /* Smooth hover animation */
+  box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.4); /* Shadow for depth */
+}
+
+/* Button hover state */
+.btn:hover {
+  background: var(--primary-dark);   /* Darker background */
+  transform: translateY(-4px);       /* Slight lift effect */
+  box-shadow: 0 20px 35px -10px rgba(124, 58, 237, 0.5);
+}
+
+/* Button active state */
+.btn:active {
+  transform: translateY(-1px);       /* Press effect */
+}
+
+/* ============================= */
+/*            MAIN STYLES          */
+/* ============================= */
+main {
+  flex: 1;                  /* Take remaining vertical space */
+  padding: 4rem 0;
+  text-align: center;
+}
+
+/* ============================= */
+/*           FOOTER STYLES         */
+/* ============================= */
+footer {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border); /* Top border for separation */
+}
+
+/* ============================= */
+/*        RESPONSIVE STYLES        */
+/* ============================= */
+@media (max-width: 640px) {
+  header {
+    padding: 5rem 0 7rem;   /* Extra padding on small screens */
+  }
+  h1 {
+    font-size: 3.5rem;      /* Adjust font size for smaller screens */
+  }
+}
